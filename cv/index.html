@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Css/Index.css">
+    <link rel="shortcut icon" type="image" href="./image/Chukitachnen.png"/>
+    <link rel="stylesheet" type="text/css" href="./fontawesome/css/all.css">
+    <title>CV Tran Van Sang</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<header id="Intro">
+    <div id="divlogo">
+        <div id="logo"></div>
+    </div>
+    <div id="background"></div>
+</header>
+<h1 id="MyName"><a href="./index.html">SANG TRAN VAN</a></h1>
+<div id="Navbar">
+    <ul>
+        <li class="active">
+            <a href="./html/AboutMe.html" target="onWindow"><i class="fas fa-user"></i></a>
+            <p>About Me</p>
+        </li>
+        <li>
+            <a href="./html/Contact.html" target="onWindow"> <i class="fas fa-comment-dots"></i></a>
+            <p>Contact</p>
+        </li>
+        <li>
+            <a href="./html/Timeline.html" target="onWindow"><i class="fas fa-user-graduate"></i></a>
+            <p>Timeline</p>
+        </li>
+        <li>
+            <a href="./html/Projects.html" target="onWindow"><i class="fas fa-briefcase"></i></a>
+            <p>Projects</p>
+        </li>
+        <li>
+            <a href="./document/CVSangTranVan.pdf" download>
+                <i class="fas fa-cloud-download-alt"></i>
+                <p>Done</p>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(window).on('load', function () {
+        $(".loader-container").fadeOut(3000);
+    });
+
+    let ul = document.querySelector('ul');
+    let li = document.querySelectorAll('li');
+    li.forEach(el => {
+        el.addEventListener('click', function () {
+            ul.querySelector('.active').classList.remove('active');
+            el.classList.add('active');
+        });
+    });
+
+</script>
+
+<iframe src="./html/AboutMe.html" id="onWindow" name="onWindow"></iframe>
+
+<div class="loader-container">
+    <div class="loader"></div>
+</div>
+</body>
+</html>

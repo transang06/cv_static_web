@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+html{
+    scroll-behavior: smooth;
+    font-family: 'Roboto Mono', monospace;
+}
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(0deg, rgba(97,214,230,1) 0%, rgba(203,78,246,1) 52%, rgba(97,214,230,1) 100%);
+    border-radius: 10px;
+}
+body{
+    display: grid;
+    grid-template: 550px/1fr 1fr;  
+    margin: 0;
+    background: #ffffff;
+    color: #050505;
+}
+a{
+    text-decoration: none;    
+    color: #000;
+
+}
+.title{
+    margin:  20px;   
+    display: flex;    
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: space-around;    
+    font-weight: bold;
+}
+
+#ContactMe{
+    grid-area: 1/1/2/2;
+    border-right: 1px solid rgb(156, 151, 151);
+    display: grid; 
+    grid-template: 2fr 1fr/ 1fr;        
+}
+#contact{
+    grid-area: 1/1/2/2;
+    display: grid; 
+    grid-template: 1fr 3fr/ 1fr; 
+}
+.contact1{
+    grid-area: 1/1/2/2;
+    font-size: 30px;    
+}
+#infor{
+    grid-area: 2/1/3/2;
+    display: flex;    
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
+#infor a{
+    width:100%; 
+    display: grid; 
+    grid-template: 1fr/ 0.3fr 3fr 1fr 0.3fr;   
+      
+}
+#infor a p{
+    margin:0;
+    grid-area: 1/2/2/3;
+    display: flex;    
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: space-around; 
+    font-size:20px;
+    font-style: italic;
+}
+#infor a p i{
+    font-size:25px;
+    margin-right: 20px;
+}
+#infor a .btn{
+    font-weight: bold;
+    padding: 5px;
+    font-size:20px;
+    grid-area: 1/3/2/4; 
+    color:rgb(65, 61, 61);
+    background-image: linear-gradient(to right, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #4b94b6;    
+    display: flex;    
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
+#infor a .btn:hover,#infor a .btn:active{     
+    background-image: linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%);
+    border: 1px solid rgb(112, 109, 109);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #64b0d3;    
+    
+}
+
+
+#follow{
+    grid-area: 2/1/3/2;
+    display: grid; 
+    grid-template: 0.5fr 1fr 0.5fr/ 1fr;          
+}
+.follow1{
+    grid-area: 1/1/2/2;  
+    font-size: 30px;
+}
+#iconFl{
+    grid-area: 2/1/3/2; 
+    display: flex;    
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: space-around;         
+}
+#iconFl a i:hover,#iconFl a i:active{
+    transform: rotate(390deg);
+    transition: all 0.5s ease;
+}
+#iconFl a{
+    margin: 0 10px;
+    font-size:30px;      
+}
+#addressMe{
+    grid-area: 1/2/2/3;     
+    display: grid; 
+    grid-template: 1.5fr 1fr 5fr 2fr/ 1fr; 
+}
+#TextIntrodu{
+    grid-area: 2/1/3/2;
+    margin:0 20px ; 
+    color: rgb(119, 115, 115); 
+}
+#divMap{
+    grid-area: 3/1/4/2;   
+    display: grid; 
+    grid-template: 1fr/ 1fr 10fr 1fr;  
+}
+#map{
+    grid-area: 1/2/2/3;  
+    width: 100%;
+    height: 100%;        
+    border: 1px  solid rgb(177, 177, 177);    
+}
+.address{  
+    grid-area: 1/1/2/2; 
+    font-size: 45px;
+}
+#address{
+    grid-area: 4/1/5/2;
+    
+    display: flex;    
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: space-around;     
+}
+i{
+    color: #007da3;
+    margin-right: 10px;
+}
+#address a{
+    font-size: 20px;
+}
+
+@media only screen and (max-width:1024px){
+    body{
+        grid-template: 1fr 1fr/1fr;  
+    }
+    #ContactMe{
+        grid-area: 1/1/2/2; 
+        border-right: none;      
+
+        border-bottom: 1px solid rgb(156, 151, 151);   
+    }
+    #addressMe{
+        grid-area: 2/1/3/2;
+    }
+    #address a{
+        font-size: 16px;
+    }    
+    #infor a .btn{        
+        display: none;
+    }
+    #infor a p{
+        grid-area: 1/2/2/5;
+        font-size: 18px;
+    }
+
+}

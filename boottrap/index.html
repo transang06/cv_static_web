@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Time Pad</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap-5.0.0-beta1-dist/css/bootstrap.css">
+    <script src="vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            background-color: #303137;
+        }
+
+        #thong_bao {
+            color: #fa2929;
+            font-weight: bold;
+        }
+
+        h2, label {
+            color: #f5f7fa;
+        }
+
+        .show {
+            display: block
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark " style="border-bottom: 1px solid #acacac;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="">One Time Pad</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <span @click="on_teams=!on_teams" class="nav-link active">Teams</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <template v-if="on_teams">
+        <div class="modal show">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header"><h5 class="modal-title">Nhóm sinh viên thực gồm có
+                    </h5>
+                        <button type="button" data-bs-dismiss="modal" aria-label="Close" class="btn-close"
+                                @click="on_teams=!on_teams"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list-group list-group-flush">
+                            <li v-for="item  in teams" class="list-group-item">{{item}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-backdrop fade show"></div>
+    </template>
+    <div class="container">
+        <div class="mb-3 mt-5">
+            <label for="ma_hoa_input" class="form-label">Mã Hóa Dữ Liệu</label>
+            <input type="text" @keyup.enter="main" v-model="plaintext" placeholder="Nhập dữ liệu cần mã hóa "
+                   class="form-control" id="ma_hoa_input" aria-describedby="emailHelp">
+            <div v-if="show_mess" id="thong_bao" class="form-text"> {{mess}}</div>
+        </div>
+        <button @click="main" class="btn btn-primary">Mã Hóa</button>
+        <h2 class=" mt-5" v-if="result.length">Lịch sử mã hóa</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+            <div class="col " v-for="(value,i ) in result">
+                <div class="card ext-dark bg-light mb-3 shadow_">
+                    <div class="card-header">Mã lượt mã hóa: {{i+1}}</div>
+                    <div class="card-body ">
+                        <h5 class="card-title">Thông tin mã hóa</h5>
+                        <p class="card-text">Key: {{value.key}}</p>
+                        <p class="card-text">Bản Mã: {{value.secret}}</p>
+                        <p class="card-text">Bản Rõ: {{value.plaintext_}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="xuly.js"></script>
+<script type="text/javascript" src="bootstrap-5.0.0-beta1-dist/js/bootstrap.js"></script>
+</body>
+</html>
